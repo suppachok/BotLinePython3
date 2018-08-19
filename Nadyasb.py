@@ -634,10 +634,10 @@ def lineBot(op):
                     if settings["mimic"]["target"] == {}:
                         nadya.sendMessage(msg.to,"Tidak Ada Target")
                     else:
-                        mc = "╔══[ Mimic List ]"
+                        mc = "╔══[ รายชื่อ ]"
                         for mi_d in settings["mimic"]["target"]:
                             mc += "\n╠ "+nadya.getContact(mi_d).displayName
-                        nadya.sendMessage(msg.to,mc + "\n╚══[ Finish ]")
+                        nadya.sendMessage(msg.to,mc + "\n╚══[ ☠〘 ™ŦξÀM➢ざগざʄທയ〙☠ ]")
                     
                 elif "mimic" in msg.text.lower():
                     sep = text.split(" ")
@@ -670,7 +670,7 @@ def lineBot(op):
                         group = nadya.getGroup(to)
                         if group.preventedJoinByTicket == False:
                             ticket = nadya.reissueGroupTicket(to)
-                            nadya.sendMessage(to, "[ Group Ticket ]\nhttps://nadya.me/R/ti/g/{}".format(str(ticket)))
+                            nadya.sendMessage(to, "[ ☠〘 ขอลิ้งเรียบร้อยแล้ว 〙☠ ]\nhttps://nadya.me/R/ti/g/{}".format(str(ticket)))
                         else:
                             nadya.sendMessage(to, "Grup qr tidak terbuka silahkan buka terlebih dahulu dengan perintah {}openqr".format(str(settings["keyCommand"])))
                 elif text.lower() == 'เปิดลิ้ง':
@@ -681,7 +681,7 @@ def lineBot(op):
                         else:
                             group.preventedJoinByTicket = False
                             nadya.updateGroup(group)
-                            nadya.sendMessage(to, "Berhasil membuka grup qr")
+                            nadya.sendMessage(to, "☠〘 เปิดเรียบร้อยแล้ว 〙☠")
                 elif text.lower() == 'ปิดลิ้ง':
                     if msg.toType == 2:
                         group = nadya.getGroup(to)
@@ -690,7 +690,7 @@ def lineBot(op):
                         else:
                             group.preventedJoinByTicket = True
                             nadya.updateGroup(group)
-                            nadya.sendMessage(to, "Berhasil menutup grup qr")
+                            nadya.sendMessage(to, "☠〘 ปิดเรียบร้อยแล้ว 〙☠")
                 elif text.lower() == 'ข้อมูลห้อง':
                     group = nadya.getGroup(to)
                     try:
@@ -722,16 +722,16 @@ def lineBot(op):
                 elif text.lower() == 'สมาชิก':
                     if msg.toType == 2:
                         group = nadya.getGroup(to)
-                        ret_ = "╔══[ Member List ]"
+                        ret_ = "╔══[ รายชื่อคนในห้อง ]"
                         no = 0 + 1
                         for mem in group.members:
-                            ret_ += "\n╠ {}. {}".format(str(no), str(mem.displayName))
+                            ret_ += "\n╠ ☠→{}. {}".format(str(no), str(mem.displayName))
                             no += 1
-                        ret_ += "\n╚══[ Total {} ]".format(str(len(group.members)))
+                        ret_ += "\n╚══[ 〘 ™ŦξÀM➢ざগざʄທയ〙 {} ]".format(str(len(group.members)))
                         nadya.sendMessage(to, str(ret_))
                 elif text.lower() == 'กลุ่มเรา':
                         groups = nadya.groups
-                        ret_ = "╔══[ Group List ]"
+                        ret_ = "╔══[ กลุ่มที่เรามี ]"
                         no = 0 + 1
                         for gid in groups:
                             group = nadya.getGroup(gid)
