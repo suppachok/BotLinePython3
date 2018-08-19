@@ -754,7 +754,7 @@ def lineBot(op):
                             txt += u'@Alin \n'
                         nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
                         nadya.sendMessage(to, "Total {} Mention".format(str(len(nama))))          
-                elif text.lower() == 'lurking on':
+                elif text.lower() == 'เปิดอ่าน':
                     tz = pytz.timezone("Asia/Jakarta")
                     timeNow = datetime.now(tz=tz)
                     day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -796,7 +796,7 @@ def lineBot(op):
                             json.dump(read, fp, sort_keys=True, indent=4)
                             nadya.sendMessage(msg.to, "Set reading point:\n" + readTime)
                             
-                elif text.lower() == 'lurking off':
+                elif text.lower() == 'ปิดอ่าน':
                     tz = pytz.timezone("Asia/Jakarta")
                     timeNow = datetime.now(tz=tz)
                     day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -820,7 +820,7 @@ def lineBot(op):
                               pass
                         nadya.sendMessage(msg.to, "Delete reading point:\n" + readTime)
     
-                elif text.lower() == 'lurking reset':
+                elif text.lower() == 'รีอ่าน':
                     tz = pytz.timezone("Asia/Jakarta")
                     timeNow = datetime.now(tz=tz)
                     day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -844,7 +844,7 @@ def lineBot(op):
                     else:
                         nadya.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
                         
-                elif text.lower() == 'lurking':
+                elif text.lower() == 'อ่าน':
                     tz = pytz.timezone("Asia/Jakarta")
                     timeNow = datetime.now(tz=tz)
                     day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -2040,7 +2040,7 @@ def lineBot(op):
                     A = hasil.text
                     nadya.sendMessage(msg.to, A)
 #==============================================================================#   
-                elif text.lower() == 'kalender':
+                elif text.lower() == 'Kd':
                     tz = pytz.timezone("Asia/Makassar")
                     timeNow = datetime.now(tz=tz)
                     day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -2054,7 +2054,7 @@ def lineBot(op):
                         if bln == str(k): bln = bulan[k-1]
                     readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
                     nadya.sendMessage(msg.to, readTime)                 
-                elif "screenshotwebsite" in msg.text.lower():
+                elif "Web" in msg.text.lower():
                     sep = text.split(" ")
                     query = text.replace(sep[0] + " ","")
                     with requests.session() as web:
@@ -2062,7 +2062,7 @@ def lineBot(op):
                         data = r.text
                         data = json.loads(data)
                         nadya.sendImageWithURL(to, data["result"])
-                elif "checkdate" in msg.text.lower():
+                elif "Cd" in msg.text.lower():
                     sep = msg.text.split(" ")
                     tanggal = msg.text.replace(sep[0] + " ","")
                     r=requests.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal='+tanggal)
@@ -2075,7 +2075,7 @@ def lineBot(op):
                     ret_ += "\n╠ Zodiak : {}".format(str(data["data"]["zodiak"]))
                     ret_ += "\n╚══[ Success ]"
                     nadya.sendMessage(to, str(ret_))
-                elif "instagraminfo" in msg.text.lower():
+                elif "Ig" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     with requests.session() as web:
@@ -2104,7 +2104,7 @@ def lineBot(op):
                             nadya.sendMessage(to, str(ret_))
                         except:
                             nadya.sendMessage(to, "Pengguna tidak ditemukan")
-                elif "instagrampost" in msg.text.lower():
+                elif "Ip" in msg.text.lower():
                     separate = msg.text.split(" ")
                     user = msg.text.replace(separate[0] + " ","")
                     profile = "https://www.instagram.com/" + user
@@ -2129,7 +2129,7 @@ def lineBot(op):
                                     print (node['display_src'])
                                     nadya.sendImageWithURL(msg.to,node['display_src'])
                             end_cursor = re.search(r'"end_cursor": "([^"]+)"', r.text).group(1)
-                elif "searchimage" in msg.text.lower():
+                elif "Im" in msg.text.lower():
                     separate = msg.text.split(" ")
                     search = msg.text.replace(separate[0] + " ","")
                     with requests.session() as web:
@@ -2143,7 +2143,7 @@ def lineBot(op):
                             a = items.index(path)
                             b = len(items)
                             nadya.sendImageWithURL(to, str(path))
-                elif "searchyoutube" in msg.text.lower():
+                elif "Yt" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     params = {"search_query": search}
@@ -2161,7 +2161,7 @@ def lineBot(op):
                             ret_ += "\n╠ https://www.youtube.com{}".format(str(data["href"]))
                         ret_ += "\n╚══[ Total {} ]".format(len(datas))
                         nadya.sendMessage(to, str(ret_))
-                elif "searchmusic" in msg.text.lower():
+                elif "Mp3" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     params = {'songname': search}
@@ -2180,7 +2180,7 @@ def lineBot(op):
                                 nadya.sendAudioWithURL(to, song[3])
                         except:
                             nadya.sendMessage(to, "Musik tidak ditemukan")
-                elif "searchlyric" in msg.text.lower():
+                elif "Cr" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     params = {'songname': search}
