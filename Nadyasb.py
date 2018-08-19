@@ -95,8 +95,8 @@ def helpmessage():
                   "╠┉━═◦☠〘 ตั้งค่า 〙☠◦ ═━┉" + "\n" + \
                   "╠☜◦۩💯◦۩☞ เปิด-ปิดแอด" + "\n" + \
                   "╠☜◦۩💯◦۩☞ เปิด-ปิดเข้า" + "\n" + \
-                  "╠☜◦۩💯◦۩☞ เปิด-ปิดมุด" + "\n" + \
-                  "╠☜◦۩💯◦۩☞ AutoRead「On/Off」" + "\n" + \
+                  "╠☜◦۩💯◦۩☞ เปิด-ปิดL" + "\n" + \
+                  "╠☜◦۩💯◦۩☞ เปิด-ปิดR" + "\n" + \
                   "╠☜◦۩💯◦۩☞ เปิด-ปิดติ้ก" + "\n" + \
                   "╠☜◦۩💯◦۩☞ เปิด-ปิดลบแทค" + "\n" + \
                   "║" + "\n" + \
@@ -440,16 +440,16 @@ def lineBot(op):
                 elif text.lower() == 'ปิดเข้า':
                     settings["autoJoin"] = False
                     nadya.sendMessage(to, "Berhasil menonaktifkan Auto Join")
-                elif text.lower() == 'autoleave on':
+                elif text.lower() == 'เปิดL':
                     settings["autoLeave"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Auto Leave")
-                elif text.lower() == 'autoleave off':
+                elif text.lower() == 'ปิดL':
                     settings["autoLeave"] = False
                     nadya.sendMessage(to, "Berhasil menonaktifkan Auto Leave")
-                elif text.lower() == 'autoread on':
+                elif text.lower() == 'เปิดR':
                     settings["autoRead"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Auto Read")
-                elif text.lower() == 'autoread off':
+                elif text.lower() == 'ปิดR':
                     settings["autoRead"] = False
                     nadya.sendMessage(to, "Berhasil menonaktifkan Auto Read")
                 elif text.lower() == 'เปิดติ้ก':
